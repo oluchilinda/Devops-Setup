@@ -1,0 +1,13 @@
+
+autopep8==1.5.4
+black==20.8b1
+flasgger==0.9.5
+Flask==1.1.2
+Flask-Cors==3.0.9
+Flask-Migrate==2.5.3
+Flask-RESTful==0.3.8
+Flask-SQLAlchemy==2.4.4
+httpie==2.3.0
+psycopg2-binary==2.8.6
+python-dotenv==0.15.0
+
