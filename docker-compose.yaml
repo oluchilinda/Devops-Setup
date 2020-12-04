@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+
+  server:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: gunicorn --bind 0.0.0.0:5000 main:app
+    restart: always
+    ports:
+      - 5000:5000
+    env_file: app.env
+    depends_on:
+      - postgres
+    networks:
+      - backend-network
+      - frontend-network
+
+  postgres:
+    image: postgres:11
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file: db.env
+    networks:
+      - backend-network
+      
+
+  client:
+    build:
+      context: ./note_ui
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - server
+    networks:
+      - frontend-network
+
+
+
+volumes:
+  postgres_data:
+
+networks:
+  backend-network:
+  frontend-network:
