@@ -9,3 +9,5 @@ Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernet
 
 #### Fix : 
 `kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission`
+
+
