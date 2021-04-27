@@ -4,7 +4,7 @@ services:
 
   server:
     build:
-      context: ./backend
+      context: ./microservices/backend
       dockerfile: Dockerfile
     command: gunicorn --bind 0.0.0.0:5000 main:app
     restart: always
@@ -29,7 +29,7 @@ services:
 
   client:
     build:
-      context: ./note_ui
+      context: ./microservices/note_ui
       dockerfile: Dockerfile
     restart: always
     ports:
