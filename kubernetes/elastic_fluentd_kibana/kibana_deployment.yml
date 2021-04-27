@@ -39,5 +39,7 @@ spec:
         env:
           - name: ELASTICSEARCH_URL
             value: http://elasticsearch:9200
+          - name: XPACK_SECURITY_ENABLED
+          value: "true"
         ports:
         - containerPort: 5601
